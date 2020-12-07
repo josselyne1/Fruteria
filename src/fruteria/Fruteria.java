@@ -24,11 +24,39 @@ public class Fruteria {
      */
     public static void main(String[] args) {
         Scanner entrada=new Scanner (System.in);
-        final int valorkilo=2000,nkilos;
+        final int valorkilo=2000;
+        int nkilos,dto=0,valorcompra,valordtto,valorpagar;
         System.out.println("ingrese cuantos kilos de manzana quiere comprar");
         nkilos=entrada.nextInt();
         
-        
+        if (nkilos<=2){
+            dto=0;
+            System.out.println("no tiene descuento");
+            System.out.println("su total a pagar es "+valorkilo*nkilos);
+        }
+        else{
+            if (nkilos<=5){
+                dto=10;
+            }
+            else{
+                if (nkilos<=10){
+                    dto=15;
+                }
+                else {
+                    dto=20;
+                    
+                }
+            }
+            valorcompra=nkilos*valorkilo;
+            valordtto=valorcompra*dto/100;
+            valorpagar=valorcompra-valordtto;
+            System.out.println("-------------------------------");
+            System.out.println("valor de la compra  :"+valorcompra);
+            System.out.println("-----------------------------");
+            System.out.println("valor del descuento :"+valordtto);
+            System.out.println("------------------------");
+            System.out.println("valor a pagar  :"+valorpagar);
+        }
     }
     
 }
